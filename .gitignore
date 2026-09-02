@@ -1,0 +1,19 @@
+# Node
+node_modules/
+*.log
+.DS_Store
+
+# Cloudflare / Wrangler
+.wrangler/
+.dev.vars
+dist/
+.mf/
+
+# Test + coverage
+coverage/
+
+# SQL.FM data — NEVER commit until data-use permission is explicitly confirmed.
+# See docs/architecture.md §4. Synthetic fixtures live in fixtures/ and ARE committed.
+data/dataset.v1.json
+data/dataset.*.json
+</content>
