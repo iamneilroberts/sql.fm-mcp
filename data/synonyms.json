@@ -1,0 +1,13 @@
+{
+  "widget aggregation": ["widget-agg"],
+  "aggregate widgets": ["widget-agg"],
+  "sparkle rebuild": ["sparkle-compression"],
+  "compress sparkle index": ["sparkle-compression"],
+  "flux index": ["flux-capacitor-index"],
+  "orbit synchronisation": ["orbit-sync"],
+  "orbit synchronization": ["orbit-sync"],
+  "prism": ["prism-encrypt"],
+  "prism tde": ["prism-encrypt"],
+  "audit zephyr": ["zephyr-audit"],
+  "beacon point restore": ["beacon-restore"]
+}
