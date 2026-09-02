@@ -1,0 +1,42 @@
+{
+  "name": "sqlfm-mcp",
+  "version": "0.1.0",
+  "description": "Read-only MCP server for the SQL.FM SQL Server feature matrix. Unofficial proposal; not affiliated with SQL.FM or Microsoft.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "bin": {
+    "sqlfm-mcp": "./dist/stdio.js"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "wrangler dev",
+    "dev:stdio": "tsx src/stdio.ts",
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "check:synonyms": "node scripts/check-synonyms.mjs",
+    "validate:dataset": "node scripts/validate-dataset.mjs",
+    "deploy": "wrangler deploy",
+    "deploy:dry": "wrangler deploy --dry-run",
+    "build:schemas": "tsx scripts/build-schemas.ts",
+    "build:fixture": "node scripts/build-fixture.mjs"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/server": "2.0.0",
+    "zod": "4.5.4"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.22.0",
+    "@cloudflare/workers-types": "^5.20260902.1",
+    "@modelcontextprotocol/client": "2.0.0",
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "vitest": "^4.1.0",
+    "wrangler": "^4.0.0"
+  }
+}

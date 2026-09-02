@@ -1,0 +1,871 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`tool schemas > match the committed snapshot 1`] = `
+{
+  "compare_feature_support": {
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "environments": {
+          "description": "Environments to compare, in the order you want them reported. Grammar: "mssql-<year>" for a whole release (all editions), "mssql-<year>-<edition>" where edition is standard|enterprise|developer|express, "azure-sql-db" for Azure SQL Database, "azure-sql-mi" for Azure SQL Managed Instance. Examples: "mssql-2019", "mssql-2019-standard", "azure-sql-db". Example: ["mssql-2016","mssql-2019-standard","mssql-2019-enterprise","azure-sql-db"].",
+          "items": {
+            "maxLength": 60,
+            "type": "string",
+          },
+          "maxItems": 32,
+          "minItems": 1,
+          "type": "array",
+        },
+        "id": {
+          "description": "Feature id (slug) from a search result, e.g. "string-agg".",
+          "maxLength": 64,
+          "type": "string",
+        },
+        "include_unchanged": {
+          "default": true,
+          "description": "When false, collapse consecutive environments with identical status into ranges, keeping only transitions. Useful for "when did this change".",
+          "type": "boolean",
+        },
+      },
+      "required": [
+        "id",
+        "environments",
+      ],
+      "type": "object",
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "description": "Required attribution for this data.",
+          "type": "string",
+        },
+        "differences": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "from_environment": {
+                "type": "string",
+              },
+              "from_status": {
+                "enum": [
+                  "available",
+                  "unavailable",
+                  "conditional",
+                  "preview",
+                  "not_applicable",
+                  "unknown",
+                ],
+                "type": "string",
+              },
+              "to_environment": {
+                "type": "string",
+              },
+              "to_status": {
+                "enum": [
+                  "available",
+                  "unavailable",
+                  "conditional",
+                  "preview",
+                  "not_applicable",
+                  "unknown",
+                ],
+                "type": "string",
+              },
+            },
+            "required": [
+              "from_environment",
+              "to_environment",
+              "from_status",
+              "to_status",
+            ],
+            "type": "object",
+          },
+          "type": "array",
+        },
+        "disclaimer": {
+          "description": "Accuracy and non-affiliation disclaimer.",
+          "type": "string",
+        },
+        "feature": {
+          "additionalProperties": false,
+          "properties": {
+            "category": {
+              "type": "string",
+            },
+            "id": {
+              "type": "string",
+            },
+            "summary": {
+              "type": "string",
+            },
+            "title": {
+              "type": "string",
+            },
+            "url": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "id",
+            "title",
+            "url",
+            "category",
+            "summary",
+          ],
+          "type": "object",
+        },
+        "microsoft_docs": {
+          "items": {
+            "type": "string",
+          },
+          "type": "array",
+        },
+        "rows": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "collapsed_range": {
+                "anyOf": [
+                  {
+                    "additionalProperties": false,
+                    "properties": {
+                      "count": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer",
+                      },
+                      "from": {
+                        "type": "string",
+                      },
+                      "to": {
+                        "type": "string",
+                      },
+                    },
+                    "required": [
+                      "from",
+                      "to",
+                      "count",
+                    ],
+                    "type": "object",
+                  },
+                  {
+                    "type": "null",
+                  },
+                ],
+              },
+              "conditions": {
+                "items": {
+                  "type": "string",
+                },
+                "type": "array",
+              },
+              "environment": {
+                "type": "string",
+              },
+              "label": {
+                "type": "string",
+              },
+              "notes": {
+                "items": {
+                  "type": "string",
+                },
+                "type": "array",
+              },
+              "sources": {
+                "items": {
+                  "type": "string",
+                },
+                "type": "array",
+              },
+              "status": {
+                "enum": [
+                  "available",
+                  "unavailable",
+                  "conditional",
+                  "preview",
+                  "not_applicable",
+                  "unknown",
+                ],
+                "type": "string",
+              },
+              "status_label": {
+                "type": "string",
+              },
+            },
+            "required": [
+              "environment",
+              "label",
+              "status",
+              "status_label",
+              "conditions",
+              "notes",
+              "sources",
+              "collapsed_range",
+            ],
+            "type": "object",
+          },
+          "type": "array",
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+            },
+            "url": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "name",
+            "url",
+          ],
+          "type": "object",
+        },
+        "summary": {
+          "type": "string",
+        },
+        "unknown_environments": {
+          "description": "Environments where SQL.FM records no data. This is missing data, NOT "unsupported".",
+          "items": {
+            "type": "string",
+          },
+          "type": "array",
+        },
+        "url": {
+          "description": "Canonical SQL.FM URL. Use this to cite the comparison.",
+          "type": "string",
+        },
+        "warnings": {
+          "items": {
+            "type": "string",
+          },
+          "type": "array",
+        },
+      },
+      "required": [
+        "feature",
+        "rows",
+        "summary",
+        "differences",
+        "unknown_environments",
+        "warnings",
+        "url",
+        "microsoft_docs",
+        "attribution",
+        "disclaimer",
+        "source",
+      ],
+      "type": "object",
+    },
+  },
+  "fetch": {
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "id": {
+          "description": "Feature id (slug) from a search result, e.g. "string-agg".",
+          "maxLength": 64,
+          "type": "string",
+        },
+      },
+      "required": [
+        "id",
+      ],
+      "type": "object",
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "description": "Required attribution for this data.",
+          "type": "string",
+        },
+        "disclaimer": {
+          "description": "Accuracy and non-affiliation disclaimer.",
+          "type": "string",
+        },
+        "id": {
+          "type": "string",
+        },
+        "metadata": {
+          "additionalProperties": false,
+          "properties": {
+            "aliases": {
+              "items": {
+                "type": "string",
+              },
+              "type": "array",
+            },
+            "category": {
+              "type": "string",
+            },
+            "conditions": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "edition": {
+                    "type": [
+                      "string",
+                      "null",
+                    ],
+                  },
+                  "environment": {
+                    "type": [
+                      "string",
+                      "null",
+                    ],
+                  },
+                  "note": {
+                    "type": "string",
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null",
+                    ],
+                  },
+                },
+                "required": [
+                  "environment",
+                  "edition",
+                  "note",
+                  "source",
+                ],
+                "type": "object",
+              },
+              "type": "array",
+            },
+            "data_gaps": {
+              "description": "What SQL.FM does not record for this feature. Never treat a gap as "unsupported".",
+              "items": {
+                "type": "string",
+              },
+              "type": "array",
+            },
+            "introduced": {
+              "additionalProperties": false,
+              "properties": {
+                "environment": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "release_label": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "summary": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "year": {
+                  "anyOf": [
+                    {
+                      "maximum": 9007199254740991,
+                      "minimum": -9007199254740991,
+                      "type": "integer",
+                    },
+                    {
+                      "type": "null",
+                    },
+                  ],
+                },
+              },
+              "required": [
+                "environment",
+                "release_label",
+                "year",
+                "summary",
+              ],
+              "type": "object",
+            },
+            "microsoft_docs": {
+              "items": {
+                "type": "string",
+              },
+              "type": "array",
+            },
+            "parent_category": {
+              "type": [
+                "string",
+                "null",
+              ],
+            },
+            "requirements": {
+              "additionalProperties": false,
+              "properties": {
+                "compatibility_level": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "other": {
+                  "items": {
+                    "type": "string",
+                  },
+                  "type": "array",
+                },
+                "platform": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+              },
+              "required": [
+                "compatibility_level",
+                "platform",
+                "other",
+              ],
+              "type": "object",
+            },
+            "slug": {
+              "type": "string",
+            },
+            "summary": {
+              "type": "string",
+            },
+            "support": {
+              "additionalProperties": false,
+              "properties": {
+                "azure": {
+                  "additionalProperties": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "conditions": {
+                        "items": {
+                          "type": "string",
+                        },
+                        "type": "array",
+                      },
+                      "label": {
+                        "type": "string",
+                      },
+                      "notes": {
+                        "items": {
+                          "type": "string",
+                        },
+                        "type": "array",
+                      },
+                      "sources": {
+                        "items": {
+                          "type": "string",
+                        },
+                        "type": "array",
+                      },
+                      "status": {
+                        "enum": [
+                          "available",
+                          "unavailable",
+                          "conditional",
+                          "preview",
+                          "not_applicable",
+                          "unknown",
+                        ],
+                        "type": "string",
+                      },
+                    },
+                    "required": [
+                      "status",
+                      "label",
+                      "conditions",
+                      "notes",
+                      "sources",
+                    ],
+                    "type": "object",
+                  },
+                  "propertyNames": {
+                    "type": "string",
+                  },
+                  "type": "object",
+                },
+                "sql_server": {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "aggregate": {
+                        "enum": [
+                          "available",
+                          "unavailable",
+                          "conditional",
+                          "preview",
+                          "not_applicable",
+                          "unknown",
+                        ],
+                        "type": "string",
+                      },
+                      "aggregate_condition": {
+                        "type": [
+                          "string",
+                          "null",
+                        ],
+                      },
+                      "editions": {
+                        "additionalProperties": {
+                          "enum": [
+                            "available",
+                            "unavailable",
+                            "conditional",
+                            "preview",
+                            "not_applicable",
+                            "unknown",
+                          ],
+                          "type": "string",
+                        },
+                        "propertyNames": {
+                          "type": "string",
+                        },
+                        "type": "object",
+                      },
+                      "release": {
+                        "type": "string",
+                      },
+                      "release_label": {
+                        "type": "string",
+                      },
+                      "year": {
+                        "maximum": 9007199254740991,
+                        "minimum": -9007199254740991,
+                        "type": "integer",
+                      },
+                    },
+                    "required": [
+                      "release",
+                      "release_label",
+                      "year",
+                      "editions",
+                      "aggregate",
+                      "aggregate_condition",
+                    ],
+                    "type": "object",
+                  },
+                  "type": "array",
+                },
+              },
+              "required": [
+                "sql_server",
+                "azure",
+              ],
+              "type": "object",
+            },
+            "timeline": {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "edition": {
+                    "type": [
+                      "string",
+                      "null",
+                    ],
+                  },
+                  "environment": {
+                    "type": "string",
+                  },
+                  "event": {
+                    "type": "string",
+                  },
+                  "source": {
+                    "type": [
+                      "string",
+                      "null",
+                    ],
+                  },
+                  "summary": {
+                    "type": "string",
+                  },
+                },
+                "required": [
+                  "event",
+                  "environment",
+                  "edition",
+                  "summary",
+                  "source",
+                ],
+                "type": "object",
+              },
+              "type": "array",
+            },
+            "type": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "slug",
+            "category",
+            "parent_category",
+            "type",
+            "summary",
+            "aliases",
+            "support",
+            "introduced",
+            "timeline",
+            "conditions",
+            "requirements",
+            "microsoft_docs",
+            "data_gaps",
+          ],
+          "type": "object",
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+            },
+            "url": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "name",
+            "url",
+          ],
+          "type": "object",
+        },
+        "text": {
+          "description": "Complete, model-readable description of this feature's support.",
+          "type": "string",
+        },
+        "title": {
+          "type": "string",
+        },
+        "url": {
+          "description": "Canonical SQL.FM URL. Use this to cite the record.",
+          "type": "string",
+        },
+      },
+      "required": [
+        "id",
+        "title",
+        "text",
+        "url",
+        "metadata",
+        "attribution",
+        "disclaimer",
+        "source",
+      ],
+      "type": "object",
+    },
+  },
+  "search": {
+    "input": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "properties": {
+        "category": {
+          "description": "Restrict to a SQL.FM category, e.g. "Indexing", "Security". See sqlfm://categories.",
+          "maxLength": 80,
+          "type": "string",
+        },
+        "environment": {
+          "description": "Restrict to features with the given status in one environment. Grammar: "mssql-<year>" for a whole release (all editions), "mssql-<year>-<edition>" where edition is standard|enterprise|developer|express, "azure-sql-db" for Azure SQL Database, "azure-sql-mi" for Azure SQL Managed Instance. Examples: "mssql-2019", "mssql-2019-standard", "azure-sql-db".",
+          "maxLength": 60,
+          "type": "string",
+        },
+        "limit": {
+          "default": 10,
+          "description": "Maximum results to return (1-50).",
+          "maximum": 50,
+          "minimum": 1,
+          "type": "integer",
+        },
+        "query": {
+          "description": "Feature name, keyword, or natural-language question. Examples: "STRING_AGG", "online index rebuild", "which version added DATE_BUCKET".",
+          "maxLength": 200,
+          "minLength": 1,
+          "type": "string",
+        },
+        "status": {
+          "description": "Used with \`environment\`: keep only features with this status there. Defaults to "available".",
+          "enum": [
+            "available",
+            "unavailable",
+            "conditional",
+            "preview",
+            "not_applicable",
+            "unknown",
+          ],
+          "type": "string",
+        },
+      },
+      "required": [
+        "query",
+      ],
+      "type": "object",
+    },
+    "output": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "additionalProperties": false,
+      "properties": {
+        "attribution": {
+          "description": "Required attribution for this data.",
+          "type": "string",
+        },
+        "disclaimer": {
+          "description": "Accuracy and non-affiliation disclaimer.",
+          "type": "string",
+        },
+        "query_interpretation": {
+          "additionalProperties": false,
+          "properties": {
+            "filters": {
+              "additionalProperties": false,
+              "properties": {
+                "category": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "environment": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+                "status": {
+                  "type": [
+                    "string",
+                    "null",
+                  ],
+                },
+              },
+              "required": [
+                "category",
+                "environment",
+                "status",
+              ],
+              "type": "object",
+            },
+            "normalized_query": {
+              "type": "string",
+            },
+            "synonyms_applied": {
+              "items": {
+                "type": "string",
+              },
+              "type": "array",
+            },
+            "tokens": {
+              "items": {
+                "type": "string",
+              },
+              "type": "array",
+            },
+          },
+          "required": [
+            "normalized_query",
+            "tokens",
+            "synonyms_applied",
+            "filters",
+          ],
+          "type": "object",
+        },
+        "results": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "category": {
+                "type": "string",
+              },
+              "id": {
+                "description": "Feature id (slug). Pass to fetch or compare_feature_support.",
+                "type": "string",
+              },
+              "match_reason": {
+                "enum": [
+                  "exact_slug",
+                  "exact_name",
+                  "alias",
+                  "prefix",
+                  "tokens",
+                  "description",
+                  "fuzzy",
+                ],
+                "type": "string",
+              },
+              "score": {
+                "description": "Relevance score, 0-1000. Higher is a stronger match.",
+                "type": "number",
+              },
+              "summary": {
+                "type": "string",
+              },
+              "title": {
+                "type": "string",
+              },
+              "url": {
+                "description": "Canonical SQL.FM URL. Use this to cite the result.",
+                "type": "string",
+              },
+            },
+            "required": [
+              "id",
+              "title",
+              "url",
+              "summary",
+              "category",
+              "score",
+              "match_reason",
+            ],
+            "type": "object",
+          },
+          "type": "array",
+        },
+        "source": {
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string",
+            },
+            "url": {
+              "type": "string",
+            },
+          },
+          "required": [
+            "name",
+            "url",
+          ],
+          "type": "object",
+        },
+        "suggestions": {
+          "description": "Nearest feature ids, when the search found nothing.",
+          "items": {
+            "type": "string",
+          },
+          "type": "array",
+        },
+        "total_matched": {
+          "description": "Matches before \`limit\` was applied.",
+          "maximum": 9007199254740991,
+          "minimum": -9007199254740991,
+          "type": "integer",
+        },
+        "truncated": {
+          "type": "boolean",
+        },
+      },
+      "required": [
+        "results",
+        "total_matched",
+        "truncated",
+        "suggestions",
+        "query_interpretation",
+        "attribution",
+        "disclaimer",
+        "source",
+      ],
+      "type": "object",
+    },
+  },
+}
+`;

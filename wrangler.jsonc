@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "sqlfm-mcp",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-01",
+  "compatibility_flags": ["nodejs_compat"],
+
+  "observability": {
+    "enabled": true
+  },
+
+  "vars": {
+    // Bundled-dataset mode: no outbound requests, no SSRF surface.
+    // To enable the opt-in HTTP provider, set SQLFM_DATASET_URL and
+    // SQLFM_ALLOWED_ORIGINS — both are required, and the URL's origin must be
+    // on the allowlist or the server refuses to start. Do not enable this
+    // against sql.fm without the owner's written permission (docs/architecture.md §4).
+    "SQLFM_LOG_QUERIES": "false"
+  }
+
+  // Shape A: to serve from a first-party URL, add a route on the sql.fm zone.
+  // Left commented because it requires the zone owner's account.
+  // "routes": [{ "pattern": "sql.fm/mcp*", "zone_name": "sql.fm" }]
+}

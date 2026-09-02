@@ -1,0 +1,829 @@
+{
+  "schema_version": "1.0.0",
+  "dataset_version": "synthetic-fixture-1",
+  "generated_at": "2026-09-02T00:00:00Z",
+  "source": {
+    "name": "SQL.FM",
+    "url": "https://sql.fm/",
+    "feature_url_template": "https://sql.fm/features/{slug}/",
+    "attribution": "SYNTHETIC TEST DATA — not SQL.FM content. In production this field reads: Data from SQL.FM (https://sql.fm/), created and maintained by Mike Scalise.",
+    "disclaimer": "SYNTHETIC TEST DATA. These features are invented and describe no real product. Not affiliated with SQL.FM or Microsoft."
+  },
+  "releases": [
+    {
+      "id": "mssql-2000",
+      "name": "SQL Server 2000",
+      "major": "8.0",
+      "year": 2000,
+      "sort": 10
+    },
+    {
+      "id": "mssql-2005",
+      "name": "SQL Server 2005",
+      "major": "9.0",
+      "year": 2005,
+      "sort": 20
+    },
+    {
+      "id": "mssql-2012",
+      "name": "SQL Server 2012",
+      "major": "11.0",
+      "year": 2012,
+      "sort": 30
+    },
+    {
+      "id": "mssql-2016",
+      "name": "SQL Server 2016",
+      "major": "13.0",
+      "year": 2016,
+      "sort": 40
+    },
+    {
+      "id": "mssql-2017",
+      "name": "SQL Server 2017",
+      "major": "14.0",
+      "year": 2017,
+      "sort": 50
+    },
+    {
+      "id": "mssql-2019",
+      "name": "SQL Server 2019",
+      "major": "15.0",
+      "year": 2019,
+      "sort": 60
+    },
+    {
+      "id": "mssql-2022",
+      "name": "SQL Server 2022",
+      "major": "16.0",
+      "year": 2022,
+      "sort": 70
+    },
+    {
+      "id": "mssql-2025",
+      "name": "SQL Server 2025",
+      "major": "17.0",
+      "year": 2025,
+      "sort": 80
+    }
+  ],
+  "editions": [
+    {
+      "id": "standard",
+      "name": "Standard",
+      "sort": 10
+    },
+    {
+      "id": "enterprise",
+      "name": "Enterprise",
+      "sort": 20
+    },
+    {
+      "id": "developer",
+      "name": "Developer",
+      "sort": 30
+    },
+    {
+      "id": "express",
+      "name": "Express",
+      "sort": 40
+    }
+  ],
+  "cloud_targets": [
+    {
+      "id": "azure-sql-db",
+      "name": "Azure SQL Database",
+      "short": "Azure SQL DB",
+      "docs": "https://learn.microsoft.com/en-us/azure/azure-sql/database/sql-database-paas-overview",
+      "sort": 10
+    },
+    {
+      "id": "azure-sql-mi",
+      "name": "Azure SQL Managed Instance",
+      "short": "Azure SQL MI",
+      "docs": "https://learn.microsoft.com/en-us/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview",
+      "sort": 20
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Functions",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 10
+    },
+    {
+      "id": 2,
+      "name": "Aggregate Functions",
+      "parent_id": 1,
+      "parent_name": "Functions",
+      "sort": 11
+    },
+    {
+      "id": 3,
+      "name": "String Functions",
+      "parent_id": 1,
+      "parent_name": "Functions",
+      "sort": 12
+    },
+    {
+      "id": 4,
+      "name": "Indexing & Storage",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 20
+    },
+    {
+      "id": 5,
+      "name": "Indexing",
+      "parent_id": 4,
+      "parent_name": "Indexing & Storage",
+      "sort": 21
+    },
+    {
+      "id": 6,
+      "name": "Storage Engine",
+      "parent_id": 4,
+      "parent_name": "Indexing & Storage",
+      "sort": 22
+    },
+    {
+      "id": 7,
+      "name": "High Availability & DR",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 30
+    },
+    {
+      "id": 8,
+      "name": "Security",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 40
+    },
+    {
+      "id": 9,
+      "name": "Performance",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 50
+    },
+    {
+      "id": 10,
+      "name": "Data Management",
+      "parent_id": null,
+      "parent_name": null,
+      "sort": 60
+    }
+  ],
+  "support_matrix": {
+    "encoding": "compact-v1",
+    "legend": {
+      "a": "available",
+      "u": "unavailable",
+      "n": "not_applicable",
+      "?": "unknown",
+      "p": "preview"
+    },
+    "release_order": [
+      "mssql-2000",
+      "mssql-2005",
+      "mssql-2012",
+      "mssql-2016",
+      "mssql-2017",
+      "mssql-2019",
+      "mssql-2022",
+      "mssql-2025"
+    ],
+    "edition_order": [
+      "standard",
+      "enterprise",
+      "developer",
+      "express"
+    ],
+    "rows": {
+      "widget-agg": "uuunuuuuuuuuuuuuaaaaaaaaaaaaaaaa",
+      "glyph-parse": "uuunuuuuuuuuuuuuuuuuuuuuaaaaaaaa",
+      "sparkle-compression": "uuunuuuuuuuuuaauuaauuaauuaauuaau",
+      "flux-capacitor-index": "uuunuuuuuuuuuuuuaaaaaaaaaaaaaaaa",
+      "quantum-replication": "uuunuuuuuuuuuuuuuuuuaaaaaaaa????",
+      "nimbus-cache": "uuunuuuuuuuuuuuuuuuuuuuuuuuupppp",
+      "orbit-sync": "uuunuuuuaaaaaaaaaaaaaaaaaaaaaaaa",
+      "zephyr-audit": "uuunaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "prism-encrypt": "uuunuuuuuaauuaauaaaaaaaaaaaaaaaa",
+      "lumen-stats": "uuunuuuuuuuuaaaaaaaaaaaaaaaaaaaa",
+      "tessellate-partition": "uuunuaauuaauuaauuaauaaaaaaaaaaaa",
+      "beacon-restore": "uuunuuuuuuuuuuuuuuuuaaaaaaaaaaaa"
+    }
+  },
+  "features": [
+    {
+      "id": "widget-agg",
+      "upstream_id": null,
+      "name": "WIDGET_AGG",
+      "slug": "widget-agg",
+      "url": "https://sql.fm/features/widget-agg/",
+      "type": "function",
+      "category": {
+        "id": 2,
+        "name": "Aggregate Functions",
+        "parent_name": "Functions"
+      },
+      "summary": "Aggregates widget values across rows with a configurable separator.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/widget-agg"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2017",
+          "edition": null,
+          "summary": "WIDGET_AGG introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "glyph-parse",
+      "upstream_id": null,
+      "name": "GLYPH_PARSE",
+      "slug": "glyph-parse",
+      "url": "https://sql.fm/features/glyph-parse/",
+      "type": "function",
+      "category": {
+        "id": 3,
+        "name": "String Functions",
+        "parent_name": "Functions"
+      },
+      "summary": "Parses glyph sequences into their component parts.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/glyph-parse"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2022",
+          "edition": null,
+          "summary": "GLYPH_PARSE introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "sparkle-compression",
+      "upstream_id": null,
+      "name": "Sparkle Compression",
+      "slug": "sparkle-compression",
+      "url": "https://sql.fm/features/sparkle-compression/",
+      "type": "Indexing feature",
+      "category": {
+        "id": 5,
+        "name": "Indexing",
+        "parent_name": "Indexing & Storage"
+      },
+      "summary": "Compresses sparkle indexes while concurrent access continues.",
+      "aliases": [
+        "Sparkle",
+        "SC"
+      ],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/sparkle-compression"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2016",
+          "edition": null,
+          "summary": "Sparkle Compression introduced in Enterprise edition.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "flux-capacitor-index",
+      "upstream_id": null,
+      "name": "Flux Capacitor Index",
+      "slug": "flux-capacitor-index",
+      "url": "https://sql.fm/features/flux-capacitor-index/",
+      "type": "Indexing feature",
+      "category": {
+        "id": 5,
+        "name": "Indexing",
+        "parent_name": "Indexing & Storage"
+      },
+      "summary": "Maintains a time-ordered auxiliary index for flux lookups.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/flux-capacitor-index"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "conditional",
+          "note": "Supported, but index maintenance windows cannot be configured on Managed Instance.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2017",
+          "edition": null,
+          "summary": "Flux Capacitor Index introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "quantum-replication",
+      "upstream_id": null,
+      "name": "Quantum Replication",
+      "slug": "quantum-replication",
+      "url": "https://sql.fm/features/quantum-replication/",
+      "type": "HA/DR feature",
+      "category": {
+        "id": 7,
+        "name": "High Availability & DR",
+        "parent_name": null
+      },
+      "summary": "Replicates quantum-partitioned data between replicas.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/quantum-replication"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "unavailable",
+          "note": "Not offered on Azure SQL Database.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2019",
+          "edition": null,
+          "summary": "Quantum Replication introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "nimbus-cache",
+      "upstream_id": null,
+      "name": "Nimbus Cache",
+      "slug": "nimbus-cache",
+      "url": "https://sql.fm/features/nimbus-cache/",
+      "type": "Performance feature",
+      "category": {
+        "id": 9,
+        "name": "Performance",
+        "parent_name": null
+      },
+      "summary": "Caches nimbus query fragments in memory across sessions.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/nimbus-cache"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "preview",
+          "note": "Available in preview.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "unavailable",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "orbit-sync",
+      "upstream_id": null,
+      "name": "Orbit Sync",
+      "slug": "orbit-sync",
+      "url": "https://sql.fm/features/orbit-sync/",
+      "type": "Data management feature",
+      "category": {
+        "id": 10,
+        "name": "Data Management",
+        "parent_name": null
+      },
+      "summary": "Synchronizes orbit metadata between primary and secondary nodes.",
+      "aliases": [
+        "OS",
+        "OrbitSync"
+      ],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/orbit-sync"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "unavailable",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2012",
+          "edition": null,
+          "summary": "Orbit Sync introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "zephyr-audit",
+      "upstream_id": null,
+      "name": "Zephyr Audit",
+      "slug": "zephyr-audit",
+      "url": "https://sql.fm/features/zephyr-audit/",
+      "type": "Security feature",
+      "category": {
+        "id": 8,
+        "name": "Security",
+        "parent_name": null
+      },
+      "summary": "Records zephyr-level access events to an audit target.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/zephyr-audit"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "conditional",
+          "note": "Audit targets are limited to blob storage on Azure SQL Database.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2005",
+          "edition": null,
+          "summary": "Zephyr Audit introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [
+        {
+          "environment": null,
+          "edition": null,
+          "note": "Audit target configuration requires membership in the server audit role.",
+          "source": "https://learn.microsoft.com/en-us/sql/security/auditing"
+        }
+      ],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "prism-encrypt",
+      "upstream_id": null,
+      "name": "Prism Encryption",
+      "slug": "prism-encrypt",
+      "url": "https://sql.fm/features/prism-encrypt/",
+      "type": "Security feature",
+      "category": {
+        "id": 8,
+        "name": "Security",
+        "parent_name": null
+      },
+      "summary": "Encrypts prism data at rest using a database encryption key.",
+      "aliases": [
+        "PE"
+      ],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/prism-encrypt"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2012",
+          "edition": null,
+          "summary": "Prism Encryption introduced in Enterprise edition.",
+          "source": null
+        },
+        {
+          "event": "edition_changed",
+          "environment": "mssql-2017",
+          "edition": "standard",
+          "summary": "Prism Encryption becomes available in Standard edition.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "lumen-stats",
+      "upstream_id": null,
+      "name": "LUMEN_STATS",
+      "slug": "lumen-stats",
+      "url": "https://sql.fm/features/lumen-stats/",
+      "type": "Diagnostic feature",
+      "category": {
+        "id": 9,
+        "name": "Performance",
+        "parent_name": null
+      },
+      "summary": "Exposes lumen distribution statistics for the current database.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/lumen-stats"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2016",
+          "edition": null,
+          "summary": "LUMEN_STATS introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "tessellate-partition",
+      "upstream_id": null,
+      "name": "Tessellate Partitioning",
+      "slug": "tessellate-partition",
+      "url": "https://sql.fm/features/tessellate-partition/",
+      "type": "Storage feature",
+      "category": {
+        "id": 6,
+        "name": "Storage Engine",
+        "parent_name": "Indexing & Storage"
+      },
+      "summary": "Partitions tessellated tables across filegroups.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/tessellate-partition"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "available",
+          "note": null,
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2005",
+          "edition": null,
+          "summary": "Tessellate Partitioning introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    },
+    {
+      "id": "beacon-restore",
+      "upstream_id": null,
+      "name": "Beacon Restore",
+      "slug": "beacon-restore",
+      "url": "https://sql.fm/features/beacon-restore/",
+      "type": "Data management feature",
+      "category": {
+        "id": 10,
+        "name": "Data Management",
+        "parent_name": null
+      },
+      "summary": "Restores a database to a beacon point without full recovery.",
+      "aliases": [],
+      "microsoft_docs": [
+        "https://learn.microsoft.com/en-us/sql/beacon-restore"
+      ],
+      "cloud_support": {
+        "azure-sql-db": {
+          "status": "unavailable",
+          "note": "Point-in-time restore is managed by the service instead.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        },
+        "azure-sql-mi": {
+          "status": "unavailable",
+          "note": "Point-in-time restore is managed by the service instead.",
+          "sources": [
+            "https://learn.microsoft.com/en-us/sql/azure/features-comparison"
+          ]
+        }
+      },
+      "timeline": [
+        {
+          "event": "introduced",
+          "environment": "mssql-2019",
+          "edition": null,
+          "summary": "Beacon Restore introduced.",
+          "source": null
+        }
+      ],
+      "conditions": [],
+      "requirements": {
+        "compatibility_level": null,
+        "platform": null,
+        "other": []
+      },
+      "attributes": []
+    }
+  ]
+}

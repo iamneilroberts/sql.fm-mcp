@@ -1708,7 +1708,40 @@ on synthetic fixtures, so the code is ready the day permission arrives.
 
 ---
 
-## 21. Sources
+## 21. Implementation notes — deviations from this design
+
+Phase 2 is built. Where the implementation departs from the design above, it is recorded here
+rather than quietly changed, with the reason.
+
+| # | Deviation | Why |
+|---|---|---|
+| **D1** | **Dropped the `agents` dependency.** `createMcpHandler` turned out to ship in `@modelcontextprotocol/server` itself; the Cloudflare package only added route/CORS sugar that `handler.ts` needs to own anyway (it also serves `/health`). | Two runtime dependencies instead of three — a direct reduction in supply-chain surface (T6), on the officially maintained path. Routing is ~20 lines. |
+| **D2** | **`environments[]` is derived, not stored.** §7.3 sketched a stored array; the dataset instead carries `releases`, `editions`, and `cloud_targets`, and the registry is derived at load. | Storing it would let the environment list and `support_matrix.release_order` drift apart. Deriving makes that class of bug unrepresentable, keeps the generator a serialize step, and produces byte-identical ids. |
+| **D3** | **Tests run under Node/Vitest, not `workerd`.** §14 specified `@cloudflare/vitest-pool-workers`. CI instead runs the suite under Node and adds `wrangler deploy --dry-run`. | The whole codebase is web-standard (`fetch`, `URL`, `crypto.subtle`, `TextEncoder`), and the dry-run catches bundling and runtime-compatibility failures. **This is a real reduction in fidelity** and the honest trade for V1: it would not catch a subtle behavioural difference between V8-on-Node and workerd. Worth restoring if the server ever grows runtime-specific code. |
+| **D4** | **No `--http` flag on the stdio entry.** §5.6 described one; `npm run dev` (`wrangler dev`) serves local HTTP instead. | It is the *same handler on the production runtime*, rather than a second Node HTTP path to maintain and test. Strictly better than what was designed. |
+| **D5** | **Light stemming added to the token tiers** (§9.2, tiers 5–8). Not in the original ranking design. | Acceptance case 2 failed without it: "which version added widget **aggregation**" did not match a summary saying "**Aggregates** widget values". A minimal, idempotent suffix stripper fixes a real recall gap. Applied only to token coverage — never to exact-name, slug, alias, or prefix matching — so identifier precision is untouched. |
+| **D6** | **`schemas/dataset.v1.schema.json` is generated from the Zod schema**, not hand-written. | One source of truth for runtime validation and the published contract, so they cannot drift. CI fails if the committed file is stale. |
+| **D7** | **`search` output gained an explicit `suggestions[]` field.** §8.1 described suggestions only in prose. | Making it a schema field means a model can act on it without parsing text, which is the point of having it. |
+
+Two bugs the tests caught during implementation, both fixed and both now regression-tested:
+
+- **The stemmer was not idempotent.** `partitioning → partition → partit` did not converge with
+  `partition → partit`, so a query and a description could stem to different values and never
+  meet. Fixed by iterating to a fixed point with `-ss`/`-us` guards; asserted by an idempotence
+  test over a word list.
+- **Natural-language recall was too low** (D5), found by acceptance case 2 rather than by
+  reading the code — which is the argument for writing the acceptance suite from the brief
+  rather than from the implementation.
+
+**Not deviations, just unstated:** `LATEST_PROTOCOL_VERSION` in the SDK names the newest
+*2025-era* revision (`2025-11-25`), not `2026-07-28` — the modern revision runs on its own
+track. And a `2026-07-28` request must carry `io.modelcontextprotocol/clientCapabilities` in
+`_meta` alongside the protocol version, or the handler rejects it with `-32602`. Both are
+documented in `docs/clients.md` because they will trip up anyone hand-rolling a request.
+
+---
+
+## 22. Sources
 
 - SQL.FM — `https://sql.fm/`, `/robots.txt`, `/sitemap.xml`, `/about/`, `/features/{slug}/`, and the site's data and app assets (inspected 2026-09-02)
 - [MCP specification (latest)](https://modelcontextprotocol.io/specification/latest) and the [`2026-07-28` key changes](https://modelcontextprotocol.io/specification/2026-07-28/changelog)
